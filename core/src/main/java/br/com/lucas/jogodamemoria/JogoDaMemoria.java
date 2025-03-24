@@ -2,7 +2,6 @@ package br.com.lucas.jogodamemoria;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -31,7 +30,7 @@ public class JogoDaMemoria extends ApplicationAdapter {
         stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 
-        textoFimJogo = criarFonte(48, Color.BLUE);
+        textoFimJogo = criarFonte(48, Color.WHITE);
         cartasViradas = new ArrayList<Carta>();
         cartasIguais = new ArrayList<Carta>();
         criarCartas(4);
@@ -83,7 +82,7 @@ public class JogoDaMemoria extends ApplicationAdapter {
             stage.addActor(carta);
         }
 
-        for(int i = 4, x = 50; i < quantidade * 2; i++, x += 210) {
+        for(int i = quantidade, x = 50; i < quantidade * 2; i++, x += 210) {
             Carta carta = new Carta(numeroCartas.get(i), x, Gdx.graphics.getHeight() - 600, this);
             stage.addActor(carta);
         }
@@ -146,7 +145,7 @@ public class JogoDaMemoria extends ApplicationAdapter {
             float alturaTexto = layout.height;
 
             float pos_x = (Gdx.graphics.getWidth() - larguraTexto) / 2;
-            float pos_y = (Gdx.graphics.getHeight() - alturaTexto) / 2;
+            float pos_y = (Gdx.graphics.getHeight() + alturaTexto) / 2;
 
             textoFimJogo.draw(batch, mensagem, pos_x, pos_y);
             batch.end();
